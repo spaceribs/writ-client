@@ -2,7 +2,7 @@
 
 import {Component} from '@angular/core';
 import {TestBed, async} from '@angular/core/testing';
-import {ExampleViewComponent} from './main';
+import {MainViewComponent} from './index';
 
 @Component({selector: 'fountain-techs', template: ''})
 class MockTechsComponent {}
@@ -17,7 +17,7 @@ describe('Main Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ExampleViewComponent,
+        MainViewComponent,
         MockTechsComponent,
         MockFooterComponent,
         MockHeaderComponent,
@@ -28,7 +28,7 @@ describe('Main Component', () => {
   }));
 
   it('should render the header, title, techs and footer', () => {
-    const fixture = TestBed.createComponent(ExampleViewComponent);
+    const fixture = TestBed.createComponent(MainViewComponent);
     fixture.detectChanges();
     const main = fixture.nativeElement;
     expect(main.querySelector('fountain-header')).toBeDefined();

@@ -2,9 +2,12 @@ import {NgModule, Component} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 
-import {ThreeJsModule} from './modules/threejs';
+import {ThreeModule} from './modules/three';
+import {TechsModule} from './components/tech';
 
 import {ExampleViewComponent} from './views/example/example';
+import {MainViewComponent} from './views/main';
+
 import {HeaderComponent} from './components/header/header';
 import {TitleComponent} from './components/title/title';
 import {FooterComponent} from './components/footer/footer';
@@ -18,8 +21,13 @@ class RootComponent {}
 @NgModule({
   imports: [
     BrowserModule,
-    ThreeJsModule,
+    ThreeModule,
+    TechsModule,
     RouterModule.forRoot([
+      {
+        path: '',
+        component: MainViewComponent
+      },
       {
         path: 'example',
         component: ExampleViewComponent
@@ -29,6 +37,7 @@ class RootComponent {}
   declarations: [
     RootComponent,
     ExampleViewComponent,
+    MainViewComponent,
     HeaderComponent,
     TitleComponent,
     FooterComponent
