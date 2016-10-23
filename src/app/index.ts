@@ -3,9 +3,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 
 import {ThreeModule} from './modules/three';
+import {PixijsModule} from './modules/pixijs';
 import {TechsModule} from './components/tech';
 
 import {ExampleViewComponent} from './views/example/example';
+import {ThreeViewComponent} from './views/three';
 import {MainViewComponent} from './views/main';
 
 import {HeaderComponent} from './components/header/header';
@@ -23,10 +25,15 @@ class RootComponent {}
     BrowserModule,
     ThreeModule,
     TechsModule,
+    PixijsModule,
     RouterModule.forRoot([
       {
         path: '',
         component: MainViewComponent
+      },
+      {
+        path: 'three',
+        component: ThreeViewComponent
       },
       {
         path: 'example',
@@ -37,6 +44,7 @@ class RootComponent {}
   declarations: [
     RootComponent,
     ExampleViewComponent,
+    ThreeViewComponent,
     MainViewComponent,
     HeaderComponent,
     TitleComponent,

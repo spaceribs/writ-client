@@ -1,17 +1,3 @@
-<three-scene [width]="width" [height]="height">
-  <three-cam-perspective
-    [fov]="75"
-    [aspect]="ratio()"
-    [near]="1"
-    [far]="10000"
-    [position]="cameraPos">
-  </three-cam-perspective>
-  <three-mesh>
-    <three-geo-box
-      [width]="200"
-      [height]="200"
-      [depth]="200">
-    </three-geo-box>
-  </three-mesh>
-  <three-renderer></three-renderer>
-</three-scene>
+<div class="main-view">
+  <pixi-renderer [width]="640" [height]="480"></pixi-renderer>
+</div>

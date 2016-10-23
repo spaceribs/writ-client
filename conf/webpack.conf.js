@@ -43,6 +43,17 @@ module.exports = {
         loaders: [
           'html'
         ]
+      },
+      {
+        test: /\.(png|woff|woff2|ttf|svg)$/,
+        loader: 'url?limit=100000'
+      }
+    ],
+
+    postLoaders: [
+      {
+        include: path.resolve(__dirname, 'node_modules/pixi.js'),
+        loader: 'ify'
       }
     ]
   },
