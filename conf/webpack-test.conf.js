@@ -28,6 +28,10 @@ module.exports = {
         loaders: [
           'html'
         ]
+      },
+      {
+        test: /\.(png|woff|woff2|ttf|svg)$/,
+        loader: 'url?limit=100000'
       }
     ]
   },
