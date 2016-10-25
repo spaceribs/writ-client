@@ -1,3 +1,5 @@
+import 'angular-ui-router';
+
 export default routesConfig;
 
 /** @ngInject */

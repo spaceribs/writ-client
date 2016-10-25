@@ -1,14 +1,12 @@
 import angular from 'angular';
 
-import {hello} from './app/hello';
-import 'angular-ui-router';
+import writClient from './writClient';
 import routesConfig from './routes';
 
 import './index.scss';
 
-export const app = 'app';
-
-angular
-  .module(app, ['ui.router'])
-  .config(routesConfig)
-  .component('app', hello);
+export default angular
+  .module('WritApp', [
+    'WritClient'
+  ])
+  .config(routesConfig);
