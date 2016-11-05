@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   module: {
     preLoaders: [
@@ -32,6 +34,10 @@ module.exports = {
       {
         test: /\.(png|woff|woff2|ttf|svg)$/,
         loader: 'url?limit=100000'
+      },
+      {
+        test: /node_modules\/pixi\.js/,
+        loader: 'ify'
       }
     ]
   },
