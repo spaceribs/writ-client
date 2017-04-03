@@ -36,12 +36,17 @@ module.exports = {
         loader: 'url?limit=100000'
       },
       {
+        test: /.glsl$/,
+        loaders: [
+          'raw'
+        ]
+      },
+      {
         test: /node_modules\/pixi\.js/,
         loader: 'ify'
       }
     ]
   },
   plugins: [],
-  debug: true,
   devtool: 'source-map'
 };

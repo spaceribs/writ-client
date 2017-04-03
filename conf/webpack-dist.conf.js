@@ -9,49 +9,63 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint'
-      }
-    ],
-
-    loaders: [
+        enforce: 'pre',
+        loader: 'eslint-loader'
+      },
       {
         test: /.json$/,
         loaders: [
-          'json'
+          'json-loader'
         ]
       },
       {
         test: /\.(css|scss)$/,
         loaders: ExtractTextPlugin.extract({
-          fallbackLoader: 'style',
-          loader: 'css?minimize!sass!postcss'
+          fallback: 'style-loader',
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [autoprefixer]
+              }
+            }
+          ]
         })
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: [
-          'ng-annotate',
-          'babel'
+          'ng-annotate-loader',
+          'babel-loader'
         ]
       },
       {
         test: /.html$/,
         loaders: [
-          'html'
+          'html-loader'
         ]
       },
       {
         test: /\.(png|woff|woff2|ttf|svg)$/,
-        loader: 'url?limit=100000'
+        loader: 'url-loader?limit=100000'
+      },
+      {
+        test: /.glsl$/,
+        loaders: [
+          'raw-loader'
+        ]
       },
       {
         test: /node_modules\/pixi\.js/,
-        loader: 'ify'
+        loader: 'ify-loader'
       }
     ]
   },
@@ -67,7 +81,6 @@ module.exports = {
     new ExtractTextPlugin('index-[contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin({name: 'vendor'})
   ],
-  postcss: () => [autoprefixer],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
     filename: '[name]-[hash].js'
